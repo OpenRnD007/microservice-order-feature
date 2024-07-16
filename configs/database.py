@@ -2,6 +2,8 @@ import os
 from sqlalchemy import create_engine
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
+from dotenv import load_dotenv
+load_dotenv()
 
 # SQLALCHEMY_DATABASE_URL = "sqlite:///./sql_app.db"
 SQLALCHEMY_DATABASE_URL = "postgresql://"+os.getenv('POSTGRES_USER', 'root')+":"+os.getenv('POSTGRES_PASSWORD', '')+"@"+os.getenv('POSTGRES_HOST', 'localhost')+"/"+os.getenv('POSTGRES_DB', 'defaultdb')

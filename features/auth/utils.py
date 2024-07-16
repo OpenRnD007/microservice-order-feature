@@ -1,14 +1,13 @@
 from fastapi.security import OAuth2PasswordBearer
-from passlib.context import CryptContext
+from passlib.context import CryptContext # type: ignore
 from datetime import datetime, timedelta, timezone
 import jwt
-from passlib.context import CryptContext
 import os
 from typing import Annotated
 from fastapi import Depends, HTTPException, status
 from jwt.exceptions import InvalidTokenError
 from sqlalchemy.orm import Session
-from .dependency import get_db
+from configs.dependency import get_db
 from . import crud
 from .schemas import TokenData, User
 

@@ -1,5 +1,6 @@
 from sqlalchemy import Boolean, Column, Integer, String
-from .database import Base
+from configs.database import Base
+from sqlalchemy.orm import relationship
 
 class User(Base):
     """
@@ -21,3 +22,6 @@ class User(Base):
     full_name = Column(String)
     is_active = Column(Boolean, default=True)
     disabled = Column(Boolean, default=False)
+
+    # Relationship to associate users with orders
+    orders = relationship('Order', backref='movies_users')
